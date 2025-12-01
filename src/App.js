@@ -22,6 +22,10 @@ import RivetlessType from "./pages/charts/rivetlessType/RivetlessType";
 import DragChains from "./pages/charts/dragChains/DragChains";
 import OffsetsideLinkChain from "./pages/charts/offsetsideLinkChain/OffsetsideLinkChain";
 import ReactGA from "react-ga";
+import DataUsagePolicy from "./pages/DataUsagePolicy/DataUsagePolicy";
+import PrivacyPolicy from "./pages/PrivacyPolicy/PrivacyPolicy";
+import TermsOfUsage from "./pages/TermsOfUsage/TermsOfUsage";
+import Terms from "./pages/Terms/Terms";
 
 function App() {
   const TRACKING_ID = "G-T97XLFRD1Y";
@@ -60,6 +64,22 @@ function App() {
         <Route
           path="/OffsetsideLinkChain"
           element={<OffsetsideLinkChain />}
+        ></Route>
+        <Route
+          path="/termscondition"
+          element={<Terms />}
+        ></Route>
+        <Route
+          path="/termsofusage"
+          element={<TermsOfUsage />}
+        ></Route>
+        <Route
+          path="/privacypolicy"
+          element={<PrivacyPolicy />}
+        ></Route>
+        <Route
+          path="/datausagepolicy"
+          element={<DataUsagePolicy />}
         ></Route>
       </Routes>
       <Footer />

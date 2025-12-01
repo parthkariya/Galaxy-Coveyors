@@ -35,6 +35,18 @@ const Footer = () => {
               <Link to="/ProductPage" className="link_decor_footer">
                 <h4 className="footer_link_color">Products</h4>
               </Link>
+              <Link to="/termscondition" className="link_decor_footer">
+                <h4 className="footer_link_color_menu">Terms and Conditions</h4>
+              </Link>
+              <Link to="/termsofusage" className="link_decor_footer">
+                <h4 className="footer_link_color_menu">Terms of Usage</h4>
+              </Link>
+              <Link to="/privacypolicy" className="link_decor_footer">
+                <h4 className="footer_link_color_menu">Privacy Policy</h4>
+              </Link>
+              <Link to="/datausagepolicy" className="link_decor_footer">
+                <h4 className="footer_link_color_menu">Data Usage Policy</h4>
+              </Link>
               <div style={{ marginTop: "3rem" }} className="link_decor_footer">
                 <a
                   href={images.catalogue}

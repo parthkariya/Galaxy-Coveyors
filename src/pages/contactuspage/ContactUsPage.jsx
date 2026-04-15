@@ -13,6 +13,9 @@ const ContactUsPage = () => {
   const [number, setnumber] = useState("");
   const [subject, setsubject] = useState("");
   const [description, setdescription] = useState("");
+  const [numberw, setnumberw] = useState("");
+  const [agree, setAgree] = useState(false);
+
 
   const contactApi = async () => {
     console.log("abc");
@@ -42,6 +45,9 @@ const ContactUsPage = () => {
     } else if (description == "") {
       Notification("error", "Error!", "Please enter some Description!");
       return;
+    }  else if (!agree) {
+      Notification("error", "Error!", "Please agree to Privacy Policy & Terms & Conditions!");
+      return;
     } else {
       const formData = new FormData();
       formData.append("name", name);
@@ -67,6 +73,7 @@ const ContactUsPage = () => {
         setnumber("");
         setsubject("");
         setdescription("");
+        setAgree(false);
 
         Notification(
           "success",
@@ -138,6 +145,21 @@ const ContactUsPage = () => {
               className="c-txt"
             />
 
+             <h4 className="c-lbl">WhatsApp Number</h4>
+            <input
+              type="text"
+              placeholder=""
+              name="field-name"
+              value={numberw}
+              maxLength={10}
+              onChange={(e) => {
+                if (mobileValidate(e.target.value)) {
+                  setnumberw(e.target.value);
+                }
+              }}
+              className="c-txt"
+            />
+
             <h4 className="c-lbl">Email</h4>
             <input
               type="text"
@@ -161,6 +183,25 @@ const ContactUsPage = () => {
               className="c-msg-txt"
               onChange={(e) => setdescription(e.target.value)}
             ></textarea>
+           <div className="checkbox-row" style={{ display: "flex", alignItems: "center", gap: "8px", marginTop: "8px" }}>
+              <input
+                type="checkbox"
+                checked={agree}
+                onChange={() => setAgree(!agree)}
+                style={{ width: "18px", height: "18px", cursor: "pointer" }}
+              />
+
+              <span style={{ fontSize: "14px" }}>
+                By Filling this Form You are Agree to our{" "}
+                <Link to="/privacypolicy" style={{ color: "#ff8c00", fontWeight: 600 }}>
+                  Privacy Policy
+                </Link>{" "}
+                &{" "}
+                <Link to="/termscondition" style={{ color: "#ff8c00", fontWeight: 600 }}>
+                  Terms and Conditions
+                </Link>.
+              </span>
+            </div>
             <button className="btn btn_form_red" onClick={() => contactApi()}>
               Submit
             </button>
